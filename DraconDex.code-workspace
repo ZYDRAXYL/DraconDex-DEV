@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"name": "APK",
+			"path": "./DraconDex-APK"
+		},
+		{
+			"name": "APP",
+			"path": "./DraconDex-APP"
+		},
+		{
+			"name": "EXE",
+			"path": "./DraconDex-EXE"
+		},
+		{
+			"name": "PKG",
+			"path": "./DraconDex-PKG"
+		},
+		{
+			"name": "PWA",
+			"path": "./DraconDex-PWA"
+		},
+		{
+			"name": "SDB",
+			"path": "./DraconDex-SDB"
+		},
+		{
+			"name": "WEB",
+			"path": "./DraconDex-WEB"
+		}
+	],
+	"settings": {}
+}
