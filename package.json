@@ -1,0 +1,7 @@
+{
+	"name": "dracondex-dev",
+	"private": true,
+	"scripts": {
+		"start": "npm start --prefix DraconDex-EXE"
+	}
+}

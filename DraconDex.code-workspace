@@ -29,5 +29,66 @@
 			"path": "./DraconDex-WEB"
 		}
 	],
-	"settings": {}
+	"settings": {},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Setup: Clone & Install All Repos",
+				"type": "shell",
+				"command": "pwsh",
+				"args": ["-NoProfile", "-File", "${workspaceFolder:APP}/../scripts/setup.ps1"],
+				"problemMatcher": []
+			},
+			{
+				"label": "Start: EXE (Electron)",
+				"type": "shell",
+				"command": "pwsh",
+				"args": ["-NoProfile", "-File", "${workspaceFolder:APP}/../scripts/start-dev.ps1", "-Target", "Exe"],
+				"problemMatcher": [],
+				"isBackground": true
+			},
+			{
+				"label": "Start: PWA (serve)",
+				"type": "shell",
+				"command": "pwsh",
+				"args": ["-NoProfile", "-File", "${workspaceFolder:APP}/../scripts/start-dev.ps1", "-Target", "Pwa"],
+				"problemMatcher": [],
+				"isBackground": true
+			},
+			{
+				"label": "Chain: Survey",
+				"type": "shell",
+				"command": "npm",
+				"args": ["run", "chain:survey"],
+				"options": { "cwd": "${workspaceFolder:APP}" },
+				"problemMatcher": []
+			},
+			{
+				"label": "Chain: Propagate",
+				"type": "shell",
+				"command": "npm",
+				"args": ["run", "chain:propagate"],
+				"options": { "cwd": "${workspaceFolder:APP}" },
+				"problemMatcher": []
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Debug EXE (Electron Main)",
+				"type": "node",
+				"request": "launch",
+				"cwd": "${workspaceFolder:EXE}",
+				"runtimeExecutable": "${workspaceFolder:EXE}/node_modules/.bin/electron",
+				"windows": {
+					"runtimeExecutable": "${workspaceFolder:EXE}/node_modules/.bin/electron.cmd"
+				},
+				"args": ["."],
+				"outputCapture": "std"
+			}
+		]
+	}
 }
