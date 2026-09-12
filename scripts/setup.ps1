@@ -7,7 +7,7 @@ Safe to re-run: existing repos are left alone (use `git pull` yourself).
 $ErrorActionPreference = 'Stop'
 
 $org = 'ZYDRAXYL'
-$repos = @('APK', 'APP', 'EXE', 'PKG', 'PWA', 'SDB', 'WEB')
+$repos = @('APK', 'APP', 'EXE', 'PKG', 'PWA', 'SDB', 'TRX', 'WEB')
 $root = Split-Path -Parent $PSScriptRoot
 
 foreach ($suffix in $repos) {

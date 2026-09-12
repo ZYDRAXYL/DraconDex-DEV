@@ -8,7 +8,7 @@ DraconDex-DEV is the **controller/workspace repo**, not an application repo. It
 tracks five files — `DraconDex.code-workspace`, `package.json`, `scripts/`,
 `README.md`, `LICENSE`, `.gitignore`/`.gitattributes` — and nothing else.
 
-The seven `DraconDex-*/` folders beside it are **separate git repositories**,
+The eight `DraconDex-*/` folders beside it are **separate git repositories**,
 each with its own GitHub remote under `ZYDRAXYL/`. `.gitignore` excludes them
 from this repo entirely, so they are invisible to this repo's git.
 
@@ -19,6 +19,7 @@ the owning repo below, `cd` into it, and use that repo's own skills.
 |---|---|---|
 | **APP** | `.claude/`, `chain/`, `docs/`, `process/`, `tools/` — the hub | — |
 | **SDB** | `schema/`, `supabase/`, asset masters | `sdb-v*` |
+| **TRX** | `netlify/`, `public/` — the DDX Transfer hand-off service | — |
 | **EXE** | `electron/` — the Windows desktop app | `v*` |
 | **APK** | `flutter/` — Android/iOS | `flutter-v*` |
 | **PWA** | `tools/`, `shim/`, `dist/` — both front-ends in a browser | — |
@@ -52,7 +53,7 @@ rather than trusting this table where the two disagree.
    `MIRROR_SETS`.
 
 4. **Reuse the chain tooling; never reimplement it.** It already resolves all
-   seven sibling clones from this layout:
+   eight sibling clones from this layout:
    ```bash
    node DraconDex-APP/tools/chain-lib.mjs      # resolved chain + clone paths
    node DraconDex-APP/tools/chain-survey.mjs   # what moved in the other repos

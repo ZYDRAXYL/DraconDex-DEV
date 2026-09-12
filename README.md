@@ -2,7 +2,7 @@
 
 Controller repo for the DraconDex multi-repository project. It holds no
 application code — only the VS Code workspace, setup/start scripts, and
-gitignore rules that keep the seven real repos out of this one's history.
+gitignore rules that keep the eight real repos out of this one's history.
 
 ## Layout
 
@@ -18,13 +18,14 @@ DraconDex-DEV/
 ├── DraconDex-APK/  # Android/iOS (Flutter)                            → repo of its own
 ├── DraconDex-PWA/  # browser build of EXE/APK                         → repo of its own
 ├── DraconDex-PKG/  # downloadable theme/language/view packages        → repo of its own
+├── DraconDex-TRX/  # DDX Transfer service (Netlify)                    → repo of its own
 └── DraconDex-WEB/  # public website                                   → repo of its own
 ```
 
 Each `DraconDex-*` folder is its own git repository (own `.git`, own GitHub
 remote under `ZYDRAXYL/`). `.gitignore` excludes them entirely from this
 repo, so this repo only ever tracks the controller files above. See
-`DraconDex-APP/chain/README.md` for how changes flow between the seven repos.
+`DraconDex-APP/chain/README.md` for how changes flow between the eight repos.
 
 ## First-time setup on a new device
 
@@ -46,7 +47,7 @@ cd DraconDex-DEV
 ./scripts/setup.ps1
 ```
 
-`setup.ps1` clones any of the seven `DraconDex-*` repos that aren't already
+`setup.ps1` clones any of the eight `DraconDex-*` repos that aren't already
 present next to it and runs `npm install` in each. It's idempotent — re-run
 it any time to pick up a repo you don't have locally yet.
 

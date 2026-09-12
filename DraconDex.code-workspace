@@ -25,6 +25,10 @@
 			"path": "./DraconDex-SDB"
 		},
 		{
+			"name": "TRX",
+			"path": "./DraconDex-TRX"
+		},
+		{
 			"name": "WEB",
 			"path": "./DraconDex-WEB"
 		}
