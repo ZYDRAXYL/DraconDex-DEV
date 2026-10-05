@@ -1,6 +1,7 @@
 {
 	"name": "dracondex-dev",
 	"private": true,
+	"author": "LDKTC",
 	"scripts": {
 		"start": "npm start --prefix DraconDex-EXE"
 	}

@@ -80,3 +80,7 @@ launch configs (Command Palette → *Tasks: Run Task* / *Run and Debug*):
   every attempt** — your GitHub account doesn't have access to that private
   repo yet, or Git's stored credentials are stale; sign in again via
   `git credential-manager` or switch that repo's remote to SSH.
+
+## License
+
+MIT — see [LICENSE](LICENSE). Created by LDKTC.
