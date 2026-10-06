@@ -27,6 +27,29 @@ remote under `ZYDRAXYL/`). `.gitignore` excludes them entirely from this
 repo, so this repo only ever tracks the controller files above. See
 `DraconDex-APP/chain/README.md` for how changes flow between the eight repos.
 
+## Chained repositories
+
+The eight repos in `DraconDex-APP/chain/chain.json`, all under [`ZYDRAXYL`](https://github.com/ZYDRAXYL):
+
+| Repo | What it is | Releases | Visibility |
+|---|---|---|---|
+| [DraconDex-APP](https://github.com/ZYDRAXYL/DraconDex-APP) | Hub — docs, chain contract, shared Claude tooling | — | private |
+| [DraconDex-SDB](https://github.com/ZYDRAXYL/DraconDex-SDB) | SQLite schema, Supabase setup, asset masters | `sdb-v*` | public |
+| [DraconDex-TRX](https://github.com/ZYDRAXYL/DraconDex-TRX) | DDX Transfer hand-off service (Netlify) | — | public |
+| [DraconDex-EXE](https://github.com/ZYDRAXYL/DraconDex-EXE) | Windows desktop app (Electron) | `v*` | private |
+| [DraconDex-APK](https://github.com/ZYDRAXYL/DraconDex-APK) | Android/iOS app (Flutter) | `flutter-v*` | private |
+| [DraconDex-PWA](https://github.com/ZYDRAXYL/DraconDex-PWA) | Browser build of EXE and APK | — | public |
+| [DraconDex-PKG](https://github.com/ZYDRAXYL/DraconDex-PKG) | Downloadable theme/language/view packages | `pkg-v*` | public |
+| [DraconDex-WEB](https://github.com/ZYDRAXYL/DraconDex-WEB) | Public website and release mirror | release mirror | public |
+
+Changes flow one way along the chain — see [`chain/README.md`](https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/chain/README.md) in DraconDex-APP:
+
+```
+EXE   APP > SDB, TRX > EXE > PKG, WEB, PWA
+APK   APP > SDB, TRX > APK > PKG, WEB, PWA
+PWA   APP > SDB, TRX > EXE, APK > PWA > WEB
+```
+
 ## First-time setup on a new device
 
 ### Prerequisites
