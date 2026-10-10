@@ -31,6 +31,14 @@
 		{
 			"name": "WEB",
 			"path": "./DraconDex-WEB"
+		},
+		{
+			"name": "PGI",
+			"path": "./DraconDex-PGI-Template"
+		},
+		{
+			"name": "EXT",
+			"path": "./DraconDex-EXT-Template"
 		}
 	],
 	"settings": {},
