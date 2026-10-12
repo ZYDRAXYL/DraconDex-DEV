@@ -19,17 +19,19 @@ DraconDex-DEV/
 ├── DraconDex-PWA/  # browser build of EXE/APK                         → repo of its own
 ├── DraconDex-PKG/  # downloadable theme/language/view packages        → repo of its own
 ├── DraconDex-TRX/  # DDX Transfer service (Netlify)                    → repo of its own
-└── DraconDex-WEB/  # public website                                   → repo of its own
+├── DraconDex-WEB/  # public website                                   → repo of its own
+├── DraconDex-PGI-Template/  # minimal plugin starter                  → repo of its own
+└── DraconDex-EXT-Template/  # full extension template (side panel)    → repo of its own
 ```
 
 Each `DraconDex-*` folder is its own git repository (own `.git`, own GitHub
 remote under `ZYDRAXYL/`). `.gitignore` excludes them entirely from this
 repo, so this repo only ever tracks the controller files above. See
-`DraconDex-APP/chain/README.md` for how changes flow between the eight repos.
+`DraconDex-APP/chain/README.md` for how changes flow between the ten repos.
 
 ## Chained repositories
 
-The eight repos in `DraconDex-APP/chain/chain.json`, all under [`ZYDRAXYL`](https://github.com/ZYDRAXYL):
+The ten repos in `DraconDex-APP/chain/chain.json`, all under [`ZYDRAXYL`](https://github.com/ZYDRAXYL):
 
 | Repo | What it is | Releases | Visibility |
 |---|---|---|---|
@@ -41,13 +43,15 @@ The eight repos in `DraconDex-APP/chain/chain.json`, all under [`ZYDRAXYL`](http
 | [DraconDex-PWA](https://github.com/ZYDRAXYL/DraconDex-PWA) | Browser build of EXE and APK | — | public |
 | [DraconDex-PKG](https://github.com/ZYDRAXYL/DraconDex-PKG) | Downloadable theme/language/view packages | `pkg-v*` | public |
 | [DraconDex-WEB](https://github.com/ZYDRAXYL/DraconDex-WEB) | Public website and release mirror | release mirror | public |
+| [DraconDex-PGI-Template](https://github.com/ZYDRAXYL/DraconDex-PGI-Template) | Minimal plugin starter (one window, one table) | — | public |
+| [DraconDex-EXT-Template](https://github.com/ZYDRAXYL/DraconDex-EXT-Template) | Full extension template (window + DraconDex 5 side panel) | — | public |
 
 Changes flow one way along the chain — see [`chain/README.md`](https://github.com/ZYDRAXYL/DraconDex-APP/blob/main/chain/README.md) in DraconDex-APP:
 
 ```
-EXE   APP > SDB, TRX > EXE > PKG, WEB, PWA
-APK   APP > SDB, TRX > APK > PKG, WEB, PWA
-PWA   APP > SDB, TRX > EXE, APK > PWA > WEB
+EXE   APP > SDB, TRX > EXE > PKG, WEB, PWA > PGI, EXT
+APK   APP > SDB, TRX > APK > PKG, WEB, PWA > PGI, EXT
+PWA   APP > SDB, TRX > EXE, APK > PWA > WEB > PGI, EXT
 ```
 
 ## First-time setup on a new device

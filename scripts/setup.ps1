@@ -7,7 +7,10 @@ Safe to re-run: existing repos are left alone (use `git pull` yourself).
 $ErrorActionPreference = 'Stop'
 
 $org = 'ZYDRAXYL'
-$repos = @('APK', 'APP', 'EXE', 'PKG', 'PWA', 'SDB', 'TRX', 'WEB')
+# PGI-Template and EXT-Template are the plugin templates at the tail of every
+# chain (EXE > PGI, EXT). Their folder names keep the -Template suffix because
+# chain-lib resolves a sibling clone by its GitHub repo name.
+$repos = @('APK', 'APP', 'EXE', 'PKG', 'PWA', 'SDB', 'TRX', 'WEB', 'PGI-Template', 'EXT-Template')
 $root = Split-Path -Parent $PSScriptRoot
 
 foreach ($suffix in $repos) {
