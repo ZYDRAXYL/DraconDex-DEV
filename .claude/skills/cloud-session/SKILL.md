@@ -5,7 +5,7 @@ description: How to work on DraconDex from a managed Claude Code session that ha
 
 # cloud-session — one repo, no siblings, no display
 
-A local checkout of this project gives Claude seven repositories side by side.
+A local checkout of this project gives Claude ten repositories side by side.
 A managed session — Claude Code on the web, a cloud session, CI — gives it
 **one**, with no siblings on disk and usually no Windows and no display.
 Everything that goes wrong in a cloud session traces back to one of those three
@@ -13,7 +13,7 @@ absences.
 
 ## Trap 1: DraconDex-DEV clones to nothing
 
-DEV's `.gitignore` excludes all seven `DraconDex-*/` folders, so they are not in
+DEV's `.gitignore` excludes all ten `DraconDex-*/` folders, so they are not in
 its history. A fresh clone of DraconDex-DEV contains:
 
 ```

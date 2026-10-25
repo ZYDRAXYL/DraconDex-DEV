@@ -1,9 +1,9 @@
 ---
 name: dev-workspace
-description: Work across the seven DraconDex clones from the DraconDex-DEV root — route a change to the repo that owns it, read status/branch/dirty state for all seven at once, and commit to the right one, given that DEV's git hard-ignores every child repo so a commit from the root silently captures nothing. Covers the multi-root VS Code workspace (tasks and launch configs live inside DraconDex.code-workspace, not a root .vscode/), the setup/start scripts, and the mirrored-skill law. Use when standing in DraconDex-DEV and asked to commit/push a change, check what's dirty across the repos, set up a new machine, run the app, or asked "แก้ที่ repo ไหน", "commit ให้ด้วย", "repo ไหน dirty", "status ทุก repo", "where do I commit this", "why didn't my commit include anything".
+description: Work across the ten DraconDex clones from the DraconDex-DEV root — route a change to the repo that owns it, read status/branch/dirty state for all ten at once, and commit to the right one, given that DEV's git hard-ignores every child repo so a commit from the root silently captures nothing. Covers the multi-root VS Code workspace (tasks and launch configs live inside DraconDex.code-workspace, not a root .vscode/), the setup/start scripts, and the mirrored-skill law. Use when standing in DraconDex-DEV and asked to commit/push a change, check what's dirty across the repos, set up a new machine, run the app, or asked "แก้ที่ repo ไหน", "commit ให้ด้วย", "repo ไหน dirty", "status ทุก repo", "where do I commit this", "why didn't my commit include anything".
 ---
 
-# dev-workspace — one checkout, seven repos
+# dev-workspace — one checkout, ten repos
 
 DraconDex-DEV is a container. It tracks the workspace file, `scripts/`,
 `package.json`, and the README — and **nothing under `DraconDex-*/`**, because
@@ -36,18 +36,18 @@ git -C DraconDex-EXE push
 Commit **from this root** only for `DraconDex.code-workspace`, `scripts/`,
 `package.json`, `README.md`, or `CLAUDE.md`.
 
-## Status across all seven
+## Status across all ten
 
 ```bash
-for d in APP SDB EXE APK PWA PKG WEB; do
-  printf "%-4s %-28s %s dirty\n" "$d" \
-    "$(git -C DraconDex-$d branch --show-current)" \
-    "$(git -C DraconDex-$d status --porcelain | wc -l)"
+for d in DraconDex-*/; do
+  printf "%-24s %-28s %s dirty\n" "${d%/}" \
+    "$(git -C "$d" branch --show-current)" \
+    "$(git -C "$d" status --porcelain | wc -l)"
 done
 ```
 
 Run this before starting work and before reporting anything as "done" — in a
-seven-repo layout the usual failure is finished work sitting uncommitted in a
+ten-repo layout the usual failure is finished work sitting uncommitted in a
 repo nobody looked at.
 
 ## Routing a change to its owner
