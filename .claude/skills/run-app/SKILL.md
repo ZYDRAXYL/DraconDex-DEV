@@ -38,7 +38,15 @@ node .claude/skills/run-dracondex/driver.mjs --fresh \
   "ss 01-nexus" "click .module-item:has-text('Director')" "ss 02-director"
 ```
 
-Screenshots land in `DraconDex-EXE/tmp-driver-data/shots/`. See
+Screenshots land in `DraconDex-EXE/tmp-driver-data/shots/`.
+
+**For anything past a screenshot or two, use a subagent.** EXE ships the
+`app-driver` agent (`DraconDex-EXE/.claude/agents/app-driver.md`, mirrored from
+APP) that runs the driver, reads the screenshots itself and returns a short
+PASS/FAIL report. A session started in DEV doesn't load EXE's agents, so spawn
+a general-purpose agent with: *"cd DraconDex-EXE, read
+`.claude/agents/app-driver.md` and follow it, then check: <what to verify>"*.
+Don't copy the agent into DEV — same mirrored-file rule as the skill. See
 `DraconDex-EXE/.claude/skills/run-dracondex/SKILL.md` for the full command
 vocabulary, the Welcome-window/`nextwindow` handoff, and troubleshooting.
 

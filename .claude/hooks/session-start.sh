@@ -2,13 +2,13 @@
 # SessionStart hook for DraconDex-DEV, the controller repo.
 #
 # A fresh clone of DEV is five files and no application code: .gitignore keeps
-# all eight DraconDex-* repos out of this repo's history, so a managed session
+# all ten DraconDex-* repos out of this repo's history, so a managed session
 # starts with no siblings on disk. This hook installs whatever the manifest
 # asks for and then states plainly what is and is not available, so the session
 # does not conclude the project is empty or reach for tooling that cannot run.
 set -euo pipefail
 
-# A local checkout already has the eight sibling clones, Windows and PowerShell.
+# A local checkout already has the ten sibling clones, Windows and PowerShell.
 # None of the below applies there.
 if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
@@ -36,7 +36,7 @@ Toolchain: node $(node -v), npm $(npm -v). Dependencies: ${deps}.
 
 This is the controller/workspace repo, not an application repo. It tracks only
 DraconDex.code-workspace, package.json, scripts/, README.md, LICENSE and the
-git dotfiles. The eight DraconDex-*/ folders are separate git repositories that
+git dotfiles. The ten DraconDex-*/ folders are separate git repositories that
 .gitignore excludes here, so they are NOT on disk in this session. That is by
 design, not a broken checkout.
 
